@@ -19,7 +19,7 @@ const CalculatePriceForm = () => {
       <h3>Calculate Price</h3>
       <form>
         <div className="form-control">
-          <label htmlFor="text">Trip Distance {distance}</label>
+          <label htmlFor="text">Trip Distance</label>
           <input
             type="text"
             value={distance || ""}
@@ -36,7 +36,10 @@ const CalculatePriceForm = () => {
             placeholder="Add Efficiency (km)"
           />
         </div>
-        <button className="btn" onClick={handleCalculate}>
+        <button
+          className="btn button-background-move"
+          onClick={handleCalculate}
+        >
           Calculate
         </button>
       </form>

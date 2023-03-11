@@ -9,7 +9,7 @@ const Expenses = () => {
       <div>
         <h4>Fuel</h4>
         <p id="money-plus" className="money plus">
-          {fuelLitters}L
+          {fuelLitters.toFixed(2)}литра
         </p>
       </div>
       <div>

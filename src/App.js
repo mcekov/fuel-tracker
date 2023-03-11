@@ -2,17 +2,19 @@ import { useContext, useEffect } from "react";
 import "./App.css";
 import CalculatePriceForm from "./components/CalculatePriceForm";
 import Expenses from "./components/Expenses";
-import GasNews from "./components/GasNews";
+import ShowNews from "./components/ShowNews";
 import Header from "./components/Header";
 import ShowPrice from "./components/ShowPrice";
 
 import FuelExpenseContext from "./context/fuelExpenseContext";
 
 function App() {
-  const { fetchFuelPrice } = useContext(FuelExpenseContext);
+  const { fetchFuelPrice, fetchNews } = useContext(FuelExpenseContext);
 
   useEffect(() => {
     fetchFuelPrice();
+
+    fetchNews();
   }, []);
 
   return (
@@ -21,7 +23,7 @@ function App() {
       <div className="container">
         <ShowPrice />
         <Expenses />
-        <GasNews />
+        <ShowNews />
         <CalculatePriceForm />
       </div>
     </>

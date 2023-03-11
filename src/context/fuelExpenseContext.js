@@ -8,6 +8,8 @@ function Provider({ children }) {
   const [fuelTrip, setFuelTrip] = useState(0);
   const [fuelLitters, setFuelLitters] = useState(0);
 
+  const [news, setNews] = useState([]);
+
   const fetchFuelPrice = async () => {
     const { data } = await axios(`${process.env.REACT_APP_BASEURL}/price`, {
       params: {
@@ -24,6 +26,25 @@ function Provider({ children }) {
     }
   };
 
+  const fetchNews = async () => {
+    const { data } = await axios(`${process.env.REACT_APP_BASEURL}/news`, {
+      params: {
+        key: process.env.REACT_APP_KEY,
+        fuel: "diesel",
+        count: 5,
+      },
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!news.length) {
+      setNews(data.news);
+    }
+
+    console.log(data);
+  };
+
   const calculateExpenses = (efficiency, distance) => {
     const littersForTrip = (efficiency * distance) / 100;
 
@@ -37,6 +58,8 @@ function Provider({ children }) {
     calculateExpenses,
     fuelTrip,
     fuelLitters,
+    fetchNews,
+    news,
   };
 
   return (
