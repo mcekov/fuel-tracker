@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { format } from "date-fns";
 
 import FuelExpenseContext from "../context/fuelExpenseContext";
 
@@ -14,7 +13,8 @@ const GasNews = () => {
         className={item.text.includes("поскъпна") ? "minus" : "plus"}
       >
         <span>
-          {date} <b>{item.text}</b>
+          {date} <br></br>
+          <b>{item.text}</b>
         </span>
 
         {/*  <button className="delete-btn">&times;</button> */}
