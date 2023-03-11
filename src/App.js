@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext, useEffect } from "react";
+import "./App.css";
+import CalculatePriceForm from "./components/CalculatePriceForm";
+import Expenses from "./components/Expenses";
+import GasNews from "./components/GasNews";
+import Header from "./components/Header";
+import ShowPrice from "./components/ShowPrice";
+
+import FuelExpenseContext from "./context/fuelExpenseContext";
 
 function App() {
+  const { fetchFuelPrice } = useContext(FuelExpenseContext);
+
+  useEffect(() => {
+    fetchFuelPrice();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <div className="container">
+        <ShowPrice />
+        <Expenses />
+        <GasNews />
+        <CalculatePriceForm />
+      </div>
+    </>
   );
 }
 
