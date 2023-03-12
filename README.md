@@ -24,4 +24,4 @@ Your app is ready to be deployed!
 
 ## Demo:
 
-https://jazzy-cucurucho-366342.netlify.app/
+https://fuelexpensescalculator.netlify.app/
