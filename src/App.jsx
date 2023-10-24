@@ -18,15 +18,13 @@ function App() {
   }, []);
 
   return (
-    <>
+    <div className="container mx-auto w-[400px] mt-10">
       <Header />
-      <div className="container">
-        <ShowPrice />
-        <Expenses />
-        <ShowNews />
-        <CalculatePriceForm />
-      </div>
-    </>
+      <ShowPrice />
+      <Expenses />
+      <ShowNews />
+      <CalculatePriceForm />
+    </div>
   );
 }
 
