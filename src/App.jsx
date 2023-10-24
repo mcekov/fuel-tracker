@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react";
 import "./App.css";
+
 import CalculatePriceForm from "./components/CalculatePriceForm";
 import Expenses from "./components/Expenses";
 import ShowNews from "./components/ShowNews";
@@ -13,8 +14,7 @@ function App() {
 
   useEffect(() => {
     fetchFuelPrice();
-
-    fetchNews();
+    // fetchNews();
   }, []);
 
   return (

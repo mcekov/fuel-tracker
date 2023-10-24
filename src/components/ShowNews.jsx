@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 
 import FuelExpenseContext from "../context/fuelExpenseContext";
 
@@ -16,8 +16,6 @@ const GasNews = () => {
           {date} <br></br>
           <b>{item.text}</b>
         </span>
-
-        {/*  <button className="delete-btn">&times;</button> */}
       </li>
     );
   });
@@ -26,7 +24,7 @@ const GasNews = () => {
     <>
       <h3>Fuel Price News</h3>
       <ul id="list" className="list">
-        {renderedNews}
+        {"renderedNews"}
       </ul>
     </>
   );

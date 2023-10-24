@@ -1,5 +1,5 @@
-import axios from "axios";
 import { createContext, useState } from "react";
+import axios from "axios";
 
 const FuelExpenseContext = createContext();
 
@@ -11,9 +11,9 @@ function Provider({ children }) {
   const [news, setNews] = useState([]);
 
   const fetchFuelPrice = async () => {
-    const { data } = await axios(`${process.env.REACT_APP_BASEURL}/price`, {
+    const { data } = await axios(`${import.meta.env.VITE_BASEURL}/price`, {
       params: {
-        key: process.env.REACT_APP_KEY,
+        key: import.meta.env.VITE_APP_KEY,
         fuel: "diesel",
       },
       headers: {
@@ -27,9 +27,9 @@ function Provider({ children }) {
   };
 
   const fetchNews = async () => {
-    const { data } = await axios(`${process.env.REACT_APP_BASEURL}/news`, {
+    const { data } = await axios(`${import.meta.env.VITE_BASEURL}/news`, {
       params: {
-        key: process.env.REACT_APP_KEY,
+        key: import.meta.env.VITE_APP_KEY,
         fuel: "diesel",
         count: 5,
       },

@@ -7,7 +7,9 @@ const Price = () => {
   return (
     <>
       <h4>Current {fuelData.fuel} Price</h4>
-      <h1 id="balance">{`${fuelData.price}${fuelData.dimension}`}</h1>
+      <h1 id="balance">{`${fuelData ? fuelData.price : "N/A"}${
+        fuelData ? fuelData.dimension : ""
+      }`}</h1>
     </>
   );
 };

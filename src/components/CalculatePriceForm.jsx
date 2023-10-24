@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-import toast, { Toaster } from "react-hot-toast";
 import FuelExpenseContext from "../context/fuelExpenseContext";
 
 const CalculatePriceForm = () => {
@@ -12,11 +11,6 @@ const CalculatePriceForm = () => {
     e.preventDefault();
 
     calculateExpenses(efficiency, distance);
-
-    /* toast.success("Here is your toast.", {
-      duration: 4000,
-      position: "top-center",
-    }); */
   };
 
   return (
@@ -52,7 +46,6 @@ const CalculatePriceForm = () => {
           Calculate
         </button>
       </form>
-      <Toaster />
     </>
   );
 };
