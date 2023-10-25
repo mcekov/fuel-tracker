@@ -9,6 +9,7 @@ function Provider({ children }) {
   const [fuelLitters, setFuelLitters] = useState(0);
 
   const [news, setNews] = useState([]);
+  const [gasStation, setGasStation] = useState([]);
 
   const fetchFuelPrice = async () => {
     const { data } = await axios(`${import.meta.env.VITE_BASEURL}/price`, {
@@ -23,6 +24,22 @@ function Provider({ children }) {
 
     if (!fuelData) {
       setFuelData(data);
+    }
+  };
+
+  const fetchGasStation = async () => {
+    const { data } = await axios(`${import.meta.env.VITE_BASEURL}/gasstation`, {
+      params: {
+        key: import.meta.env.VITE_APP_KEY,
+        id: 5,
+      },
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!gasStation.length) {
+      setGasStation(data);
     }
   };
 
@@ -41,8 +58,6 @@ function Provider({ children }) {
     if (!news.length) {
       setNews(data.news);
     }
-
-    console.log(data);
   };
 
   const calculateExpenses = (efficiency, distance) => {
@@ -56,6 +71,7 @@ function Provider({ children }) {
     fuelData,
     fetchFuelPrice,
     calculateExpenses,
+    fetchGasStation,
     fuelTrip,
     fuelLitters,
     fetchNews,

@@ -15,37 +15,67 @@ const CalculatePriceForm = () => {
 
   return (
     <>
-      <h3>Calculate Price</h3>
-      <form>
-        <div className="form-control">
-          <label htmlFor="text">Trip Distance</label>
-          <input
-            type="number"
-            pattern="[0-9]*"
-            inputMode="numeric"
-            value={distance || ""}
-            onChange={(e) => setDistance(e.target.value)}
-            placeholder="Add distance (km)"
-          />
-        </div>
-        <div className="form-control">
-          <label htmlFor="text">Fuel Efficiency (L/100km)</label>
-          <input
-            type="number"
-            pattern="[0-9]*"
-            inputMode="numeric"
-            value={efficiency || ""}
-            onChange={(e) => setEfficiency(e.target.value)}
-            placeholder="Add Efficiency (km)"
-          />
-        </div>
-        <button
-          className="btn button-background-move"
-          onClick={handleCalculate}
-        >
-          Calculate
-        </button>
-      </form>
+      <div className="w-full">
+        <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+          <div className="mb-4">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="distance"
+            >
+              Trip Distance
+            </label>
+            <input
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-blue-500 focus:shadow-outline"
+              id="distance"
+              type="number"
+              placeholder="Add distance (km)"
+              pattern="[0-9]*"
+              inputMode="numeric"
+              value={distance || ""}
+              onChange={(e) => setDistance(e.target.value)}
+            />
+          </div>
+          <div className="mb-4">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="efficiency"
+            >
+              Fuel Efficiency (L/100km)
+            </label>
+            <input
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-blue-500 focus:shadow-outline"
+              id="efficiency"
+              type="number"
+              pattern="[0-9]*"
+              inputMode="numeric"
+              value={efficiency || ""}
+              onChange={(e) => setEfficiency(e.target.value)}
+              placeholder="Add Efficiency (km)"
+            />
+          </div>
+          <div className="flex items-center justify-between">
+            <button
+              className="bg-slate-500 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              type="button"
+              onClick={handleCalculate}
+            >
+              Calculate
+            </button>
+            <a
+              className="cursor-pointer inline-block align-baseline font-bold text-sm text-red-300 hover:text-red-500"
+              onClick={() => {
+                setDistance(0);
+                setEfficiency(0);
+              }}
+            >
+              Cancel
+            </a>
+          </div>
+        </form>
+        <p className="text-center text-gray-500 text-xs">
+          &copy;2023 All rights reserved.
+        </p>
+      </div>
     </>
   );
 };

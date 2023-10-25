@@ -7,6 +7,7 @@ const GasNews = () => {
 
   const renderedNews = news.map((item) => {
     const [date, hour] = item.date.split(" ");
+
     return (
       <li
         key={item.id}

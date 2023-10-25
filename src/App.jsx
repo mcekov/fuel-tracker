@@ -10,19 +10,22 @@ import ShowPrice from "./components/ShowPrice";
 import FuelExpenseContext from "./context/fuelExpenseContext";
 
 function App() {
-  const { fetchFuelPrice, fetchNews } = useContext(FuelExpenseContext);
+  const { fetchFuelPrice, fetchNews, fetchGasStation } =
+    useContext(FuelExpenseContext);
 
   useEffect(() => {
     fetchFuelPrice();
-    // fetchNews();
+    fetchNews();
+    fetchGasStation();
   }, []);
 
   return (
     <div className="container mx-auto w-[400px] mt-10">
       <Header />
       <ShowPrice />
+      {/*  <ShowNews /> */}
+      <h3 className="text-xl font-bold text-slate-700 mt-5">Calculate Price</h3>
       <Expenses />
-      <ShowNews />
       <CalculatePriceForm />
     </div>
   );
