@@ -10,10 +10,10 @@ const Price = () => {
     <div>
       <div className="relative h-[90px] flex rounded-md border-gray-200 bg-white bg-clip-border shadow-md shadow-[#e9e9e9] dark:border-[#ffffff33] dark:!bg-navy-800 dark:text-white dark:shadow-none">
         <div className="h-50 ml-4 flex w-auto flex-col mt-2">
-          <p className="font-dm text-sm font-medium text-gray-600">
-            {fuelData.fuel.toUpperCase()} FUEL PRICE
+          <p className="text-slate-700 font-dm text-sm font-medium text-gray-600">
+            {fuelData.fuel} price
           </p>
-          <p className="text-3xl font-bold text-navy-700 dark:text-white">
+          <p className="text-slate-700 text-3xl font-bold text-navy-700 dark:text-white">
             {`${fuelData ? fuelData.price : "N/A"} ${
               fuelData ? fuelData.dimension : ""
             }`}

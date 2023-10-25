@@ -24,7 +24,7 @@ const GasNews = () => {
     <>
       <h3>Fuel Price News</h3>
       <ul id="list" className="list">
-        {"renderedNews"}
+        {renderedNews}
       </ul>
     </>
   );
