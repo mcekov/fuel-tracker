@@ -55,7 +55,7 @@ const CalculatePriceForm = () => {
           </div>
           <div className="flex items-center justify-between">
             <button
-              className="bg-slate-500 hover:bg-slate-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-green-400 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="button"
               onClick={handleCalculate}
             >
