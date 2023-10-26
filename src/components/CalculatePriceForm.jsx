@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import FuelExpenseContext from "../context/fuelExpenseContext";
+import { Button } from "@/components/ui/button";
 
 const CalculatePriceForm = () => {
   const { calculateExpenses } = useContext(FuelExpenseContext);
@@ -54,13 +55,12 @@ const CalculatePriceForm = () => {
             />
           </div>
           <div className="flex items-center justify-between">
-            <button
-              className="bg-green-400 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              type="button"
+            <Button
               onClick={handleCalculate}
+              className="bg-green-400 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
               Calculate
-            </button>
+            </Button>
             <a
               className="cursor-pointer inline-block align-baseline font-bold text-sm text-red-300 hover:text-red-500"
               onClick={() => {

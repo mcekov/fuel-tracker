@@ -5,6 +5,8 @@ import FuelExpenseContext from "../context/fuelExpenseContext";
 const GasNews = () => {
   const { news } = useContext(FuelExpenseContext);
 
+  console.log("n: ", news);
+
   const renderedNews = news.map((item) => {
     const [date, hour] = item.date.split(" ");
 

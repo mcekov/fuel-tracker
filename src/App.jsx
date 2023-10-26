@@ -23,7 +23,7 @@ function App() {
     <div className="container mx-auto w-[400px] mt-10">
       <Header />
       <ShowPrice />
-      {/*  <ShowNews /> */}
+      {/* <ShowNews /> */}
       <h3 className="text-xl font-bold text-slate-700 mt-5">Calculate Price</h3>
       <Expenses />
       <CalculatePriceForm />
