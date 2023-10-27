@@ -11,11 +11,11 @@ function Provider({ children }) {
   const [news, setNews] = useState([]);
   const [gasStation, setGasStation] = useState([]);
 
-  const fetchFuelPrice = async () => {
+  const fetchFuelPrice = async (fuel) => {
     const { data } = await axios(`${import.meta.env.VITE_BASEURL}/price`, {
       params: {
         key: import.meta.env.VITE_APP_KEY,
-        fuel: "diesel",
+        fuel,
       },
       headers: {
         "Content-Type": "application/json",

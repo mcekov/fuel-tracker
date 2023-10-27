@@ -2,6 +2,15 @@ import React, { useContext } from "react";
 import FuelExpenseContext from "../context/fuelExpenseContext";
 import ChartIcon from "./ChartIcon";
 
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+
 const Price = () => {
   const { fuelData } = useContext(FuelExpenseContext);
 
@@ -9,7 +18,7 @@ const Price = () => {
 
   return (
     <>
-      <div className="relative h-[90px] flex rounded-md border-gray-200 bg-white bg-clip-border shadow-md dark:border-[#ffffff33] dark:!bg-navy-800 dark:text-white dark:shadow-none">
+      {/* <div className="relative h-[90px] flex rounded-md border-gray-200 bg-white bg-clip-border shadow-md dark:border-[#ffffff33] dark:!bg-navy-800 dark:text-white dark:shadow-none">
         <div className="h-50 ml-4 flex w-auto flex-col mt-2">
           <p className="text-slate-700 font-dm text-sm font-medium">
             {fuelData.fuel} price
@@ -25,12 +34,89 @@ const Price = () => {
             className="border-red-200 fill-red-300"
             variant="priceUp"
           />
-          <ChartIcon
-            className="border-green-200 fill-green-300"
-            variant="priceDown"
-          />
         </div>
+      </div> */}
+
+      <div className="grid grid-cols-2 gap-2">
+        <Card className="">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium text-slate-700">
+              {fuelData.fuel} price
+            </CardTitle>
+            <ChartIcon
+              className="border-green-200 fill-green-300"
+              variant="priceDown"
+            />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold text-slate-700">{`${
+              fuelData ? fuelData.price : "N/A"
+            } ${fuelData ? fuelData.dimension : ""}`}</div>
+            <p className="text-xs text-muted-foreground">
+              +20.1% from last month
+            </p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium text-slate-700">
+              {fuelData.fuel} price
+            </CardTitle>
+            <ChartIcon
+              className="border-green-200 fill-green-300"
+              variant="priceDown"
+            />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold text-slate-700">{`${
+              fuelData ? fuelData.price : "N/A"
+            } ${fuelData ? fuelData.dimension : ""}`}</div>
+            <p className="text-xs text-muted-foreground">
+              +20.1% from last month
+            </p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium text-slate-700">
+              {fuelData.fuel} price
+            </CardTitle>
+            <ChartIcon
+              className="border-green-200 fill-green-300"
+              variant="priceDown"
+            />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold text-slate-700">{`${
+              fuelData ? fuelData.price : "N/A"
+            } ${fuelData ? fuelData.dimension : ""}`}</div>
+            <p className="text-xs text-muted-foreground">
+              +20.1% from last month
+            </p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium text-slate-700">
+              {fuelData.fuel} price
+            </CardTitle>
+            <ChartIcon
+              className="border-green-200 fill-green-300"
+              variant="priceDown"
+            />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold text-slate-700">{`${
+              fuelData ? fuelData.price : "N/A"
+            } ${fuelData ? fuelData.dimension : ""}`}</div>
+            <p className="text-xs text-muted-foreground">
+              +20.1% from last month
+            </p>
+          </CardContent>
+        </Card>
       </div>
+
+      <div className="flex gap-2 mt-2"></div>
     </>
   );
 };

@@ -14,13 +14,13 @@ function App() {
     useContext(FuelExpenseContext);
 
   useEffect(() => {
-    fetchFuelPrice();
+    fetchFuelPrice("diesel");
     fetchNews();
     fetchGasStation();
   }, []);
 
   return (
-    <div className="container mx-auto w-[400px] mt-10">
+    <div className="container mx-auto w-full md:w-auto mt-10">
       <Header />
       <ShowPrice />
       {/* <ShowNews /> */}
