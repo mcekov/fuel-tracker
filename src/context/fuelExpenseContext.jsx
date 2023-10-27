@@ -4,7 +4,8 @@ import axios from "axios";
 const FuelExpenseContext = createContext();
 
 function FuelExpenseProvider({ children }) {
-  const [fuelData, setFuelData] = useState("");
+  const [fuelData, setFuelData] = useState([]);
+
   const [fuelTrip, setFuelTrip] = useState(0);
   const [fuelLitters, setFuelLitters] = useState(0);
 
@@ -22,9 +23,7 @@ function FuelExpenseProvider({ children }) {
       },
     });
 
-    if (!fuelData) {
-      setFuelData(data);
-    }
+    setFuelData((prevData) => [...prevData, data]);
   };
 
   const fetchGasStation = async () => {

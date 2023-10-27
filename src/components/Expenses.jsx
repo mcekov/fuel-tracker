@@ -30,33 +30,33 @@ const Expenses = () => {
         Calculate Price
       </h3>
       <div className="grid grid-cols-2 gap-2">
-        <Card>
+        <Card className="bg-gradient-to-t from-orange-400 to-red-500">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-slate-700">
+            <CardTitle className="text-sm font-medium text-white">
               Fuel
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-slate-700">
+            <div className="text-2xl font-bold text-white">
               {fuelLitters.toFixed(2)}литра
             </div>
-            <p className="text-xs text-muted-foreground">
+            <p className="text-xs text-muted-foreground text-white">
               +20.1% from last month
             </p>
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="bg-gradient-to-t from-slate-400 to-slate-600">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-slate-700">
+            <CardTitle className="text-sm font-medium text-white">
               Expense
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-slate-700">
+            <div className="text-2xl font-bold text-white">
               {fuelTrip.toFixed(2)}лв.
             </div>
-            <p className="text-xs text-muted-foreground">
+            <p className="text-xs text-muted-foreground text-white">
               +20.1% from last month
             </p>
           </CardContent>

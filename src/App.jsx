@@ -18,6 +18,9 @@ function App() {
 
   useEffect(() => {
     fetchFuelPrice("diesel");
+    fetchFuelPrice("gasoline");
+    fetchFuelPrice("lpg");
+    fetchFuelPrice("methane");
     fetchNews();
     fetchGasStation();
   }, []);
