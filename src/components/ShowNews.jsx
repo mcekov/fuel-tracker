@@ -1,6 +1,6 @@
 import { useContext } from "react";
 
-import FuelExpenseContext from "../context/fuelExpenseContext";
+import FuelExpenseContext from "../context/FuelExpenseContext";
 
 const GasNews = () => {
   const { news } = useContext(FuelExpenseContext);

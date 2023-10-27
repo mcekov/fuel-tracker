@@ -3,7 +3,7 @@ import axios from "axios";
 
 const FuelExpenseContext = createContext();
 
-function Provider({ children }) {
+function FuelExpenseProvider({ children }) {
   const [fuelData, setFuelData] = useState("");
   const [fuelTrip, setFuelTrip] = useState(0);
   const [fuelLitters, setFuelLitters] = useState(0);
@@ -85,5 +85,5 @@ function Provider({ children }) {
   );
 }
 
-export { Provider };
+export { FuelExpenseProvider };
 export default FuelExpenseContext;

@@ -7,7 +7,10 @@ import ShowNews from "./components/ShowNews";
 import Header from "./components/Header";
 import ShowPrice from "./components/ShowPrice";
 
-import FuelExpenseContext from "./context/fuelExpenseContext";
+import FuelExpenseContext from "./context/FuelExpenseContext";
+import { ThemeProvider } from "./context/ThemeProvider";
+
+import { ModeToggle } from "./components/ModeToggle";
 
 function App() {
   const { fetchFuelPrice, fetchNews, fetchGasStation } =
@@ -20,14 +23,16 @@ function App() {
   }, []);
 
   return (
-    <div className="container mx-auto w-full md:w-auto mt-10">
-      <Header />
-      <ShowPrice />
-      {/* <ShowNews /> */}
-      <h3 className="text-xl font-bold text-slate-700 mt-5">Calculate Price</h3>
-      <Expenses />
-      <CalculatePriceForm />
-    </div>
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <div className="container mx-auto w-full md:w-auto mt-10">
+        <ModeToggle />
+        <Header />
+        <ShowPrice />
+        {/* <ShowNews /> */}
+        <Expenses />
+        <CalculatePriceForm />
+      </div>
+    </ThemeProvider>
   );
 }
 
