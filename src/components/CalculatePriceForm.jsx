@@ -25,12 +25,25 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
 const formSchema = z.object({
   distance: z.string().min(1, {
     message: "Distance must be at least 1 numeric character.",
   }),
   efficiency: z.string().min(1, {
     message: "Efficiency must be at least 1 numeric character.",
+  }),
+  fuelType: z.string({
+    message: "Select fuel type.",
   }),
 });
 
@@ -46,6 +59,7 @@ const CalculatePriceForm = () => {
     defaultValues: {
       distance: "",
       efficiency: "",
+      fuelType: "",
     },
   });
   // 2. Define a submit handler.
@@ -54,9 +68,9 @@ const CalculatePriceForm = () => {
     // ✅ This will be type-safe and validated.
     console.log(values);
 
-    const { distance, efficiency } = values;
+    const { distance, efficiency, fuelType } = values;
 
-    calculateExpenses(efficiency, distance);
+    calculateExpenses(efficiency, distance, fuelType);
   }
 
   return (
@@ -70,6 +84,39 @@ const CalculatePriceForm = () => {
         <CardContent>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+              <FormField
+                control={form.control}
+                name="fuelType"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Fuel type</FormLabel>
+                    <FormControl>
+                      <Select
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                      >
+                        <SelectTrigger className="w-[180px]">
+                          <SelectValue placeholder="Select a fuel" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectGroup>
+                            <SelectLabel>Fuel types</SelectLabel>
+                            <SelectItem value="diesel">Diesel</SelectItem>
+                            <SelectItem value="gasoline">Gasoline</SelectItem>
+                            <SelectItem value="lpg">LPG</SelectItem>
+                            <SelectItem value="methane">Methane</SelectItem>
+                          </SelectGroup>
+                        </SelectContent>
+                      </Select>
+                    </FormControl>
+                    <FormDescription>
+                      {/* This is your public display name. */}
+                    </FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
               <FormField
                 control={form.control}
                 name="distance"

@@ -59,10 +59,11 @@ function FuelExpenseProvider({ children }) {
     }
   };
 
-  const calculateExpenses = (efficiency, distance) => {
+  const calculateExpenses = (efficiency, distance, fuelType) => {
+    const fuel = fuelData.find((f) => f.fuel === fuelType);
     const littersForTrip = (efficiency * distance) / 100;
 
-    setFuelTrip(littersForTrip * fuelData.price);
+    setFuelTrip(littersForTrip * fuel.price);
     setFuelLitters((efficiency * distance) / 100);
   };
 
