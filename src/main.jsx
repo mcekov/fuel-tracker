@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
 
-import { FuelExpenseProvider } from "./context/FuelExpenseContext";
+import { FuelExpenseProvider } from "./context/fuelExpenseContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <FuelExpenseProvider>

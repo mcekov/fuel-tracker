@@ -16,7 +16,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-import FuelExpenseContext from "./context/FuelExpenseContext";
+import FuelExpenseContext from "./context/fuelExpenseContext";
 import { ThemeProvider } from "./context/ThemeProvider";
 import { ModeToggle } from "./components/ModeToggle";
 

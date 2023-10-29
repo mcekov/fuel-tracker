@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import FuelExpenseContext from "../context/FuelExpenseContext";
+import FuelExpenseContext from "../context/fuelExpenseContext";
 import ChartIcon from "./ChartIcon";
 
 import {
