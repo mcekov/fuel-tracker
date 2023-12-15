@@ -3,26 +3,42 @@ import axios from "axios";
 
 const FuelExpenseContext = createContext();
 
-function Provider({ children }) {
-  const [fuelData, setFuelData] = useState("");
+function FuelExpenseProvider({ children }) {
+  const [fuelData, setFuelData] = useState([]);
+
   const [fuelTrip, setFuelTrip] = useState(0);
   const [fuelLitters, setFuelLitters] = useState(0);
 
   const [news, setNews] = useState([]);
+  const [gasStation, setGasStation] = useState([]);
 
-  const fetchFuelPrice = async () => {
+  const fetchFuelPrice = async (fuel) => {
     const { data } = await axios(`${import.meta.env.VITE_BASEURL}/price`, {
       params: {
         key: import.meta.env.VITE_APP_KEY,
-        fuel: "diesel",
+        fuel,
       },
       headers: {
         "Content-Type": "application/json",
       },
     });
 
-    if (!fuelData) {
-      setFuelData(data);
+    setFuelData((prevData) => [...prevData, data]);
+  };
+
+  const fetchGasStation = async () => {
+    const { data } = await axios(`${import.meta.env.VITE_BASEURL}/gasstation`, {
+      params: {
+        key: import.meta.env.VITE_APP_KEY,
+        id: 5,
+      },
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (!gasStation.length) {
+      setGasStation(data);
     }
   };
 
@@ -41,14 +57,13 @@ function Provider({ children }) {
     if (!news.length) {
       setNews(data.news);
     }
-
-    console.log(data);
   };
 
-  const calculateExpenses = (efficiency, distance) => {
+  const calculateExpenses = (efficiency, distance, fuelType) => {
+    const fuel = fuelData.find((f) => f.fuel === fuelType);
     const littersForTrip = (efficiency * distance) / 100;
 
-    setFuelTrip(littersForTrip * fuelData.price);
+    setFuelTrip(littersForTrip * fuel.price);
     setFuelLitters((efficiency * distance) / 100);
   };
 
@@ -56,6 +71,7 @@ function Provider({ children }) {
     fuelData,
     fetchFuelPrice,
     calculateExpenses,
+    fetchGasStation,
     fuelTrip,
     fuelLitters,
     fetchNews,
@@ -69,5 +85,5 @@ function Provider({ children }) {
   );
 }
 
-export { Provider };
+export { FuelExpenseProvider };
 export default FuelExpenseContext;

@@ -5,8 +5,11 @@ import FuelExpenseContext from "../context/fuelExpenseContext";
 const GasNews = () => {
   const { news } = useContext(FuelExpenseContext);
 
+  console.log("n: ", news);
+
   const renderedNews = news.map((item) => {
     const [date, hour] = item.date.split(" ");
+
     return (
       <li
         key={item.id}
@@ -24,7 +27,7 @@ const GasNews = () => {
     <>
       <h3>Fuel Price News</h3>
       <ul id="list" className="list">
-        {"renderedNews"}
+        {renderedNews}
       </ul>
     </>
   );
